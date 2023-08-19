@@ -4,6 +4,8 @@
 
 package com.main.projetojava;
 
+import modal.views.Usuarioviews;
+
 /**
  *
  * @author gllbo
@@ -11,6 +13,7 @@ package com.main.projetojava;
 public class Projetojava {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Usuarioviews views = new Usuarioviews();
+        views.setVisible(true);
     }
 }

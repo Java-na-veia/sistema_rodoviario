@@ -17,7 +17,10 @@ public class Usuario implements Serializable{
     private String cargo;
     private String login;
     private String senha;
-    private String email; 
+    private String email;
+    public Usuario(){
+        
+    }
 
     public Usuario(Integer id, String nome, String cargo, String login, String senha, String email) {
         this.id = id;

@@ -116,6 +116,15 @@ public class Passagem implements Serializable{
         }
         return Objects.equals(this.poltrona, other.poltrona);
     }
+
+    public Veiculo getVeiculo() {
+        return veiculo; // Supondo que "veiculo" seja a propriedade que armazena o objeto Veiculo na classe Passagem.
+    }
+
+    public Usuario getUsuario() {
+        return usuario; // Supondo que "usuario" seja a propriedade que armazena o objeto Usuario na classe Passagem.
+    }
+
     
     
 }

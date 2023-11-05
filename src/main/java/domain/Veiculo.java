@@ -107,4 +107,8 @@ public class Veiculo implements Serializable{
         return Objects.equals(this.placa, other.placa);
     }
 
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

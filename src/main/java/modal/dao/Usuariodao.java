@@ -5,6 +5,7 @@ import conectabd.Conectabanco;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import domain.Usuario;
+import java.sql.SQLException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -32,7 +33,7 @@ public class Usuariodao {
             pst.setString(4, obj.getSenha());
             pst.setString(5, obj.getEmail());
             pst.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
     }
     

@@ -59,9 +59,4 @@ public class Cidade implements Serializable {
         Cidade other = (Cidade) obj;
         return Objects.equals(this.idCidade, other.idCidade);
     }
-
-    public Long getId() {
-        // Substitua o valor a seguir pelo código que obtém o ID da cidade.
-        return idCidade; // Supondo que o ID da cidade seja armazenado na variável idCidade.
-    }
 }

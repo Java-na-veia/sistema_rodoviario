@@ -108,7 +108,11 @@ public class Veiculo implements Serializable{
     }
 
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return Integer.parseInt(numero);
+    }
+    
+    public Veiculo(String placa) {
+        this.placa = placa;
     }
 
 }

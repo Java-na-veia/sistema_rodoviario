@@ -1,11 +1,13 @@
 package modal.dao;
 
 
-import conectabd.Conectabanco;
+import conectabd.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import domain.Usuario;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,7 +27,7 @@ public class Usuariodao {
     
     
     public void cadastro(Usuario obj){
-        try { con = Conectabanco.getConnection();
+        try { con = Conexao.getConnection();
             pst = con.prepareStatement("call cadastrarusuario(?,?,?,?,?);");
             pst.setString(1, obj.getNome());
             pst.setString(2, obj.getCargo());
@@ -34,6 +36,8 @@ public class Usuariodao {
             pst.setString(5, obj.getEmail());
             pst.executeUpdate();
         } catch (SQLException e) {
+        } catch (Exception ex) {
+            Logger.getLogger(Usuariodao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

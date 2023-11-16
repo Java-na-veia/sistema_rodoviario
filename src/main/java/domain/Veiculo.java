@@ -5,7 +5,6 @@
 package domain;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -15,21 +14,21 @@ import java.util.Objects;
 public class Veiculo implements Serializable{
     private String numero;
     private String placa;
-    private Usuario motorista;
+    private String motorista;
     private String modelo;
-    private Date datacompra;
+    private Integer anomodelo;
     private Integer qtdpoltronas;
     
     public Veiculo() {
         
     }
 
-    public Veiculo(String numero, String placa, Usuario motorista, String modelo, Date datacompra, Integer qtdpoltronas) {
+    public Veiculo(String numero, String placa, String motorista, String modelo, Integer anomodelo, Integer qtdpoltronas) {
         this.numero = numero;
         this.placa = placa;
         this.motorista = motorista;
         this.modelo = modelo;
-        this.datacompra = datacompra;
+        this.anomodelo = anomodelo;
         this.qtdpoltronas = qtdpoltronas;
     }
 
@@ -49,11 +48,11 @@ public class Veiculo implements Serializable{
         this.placa = placa;
     }
 
-    public Usuario getMotorista() {
+    public String getMotorista() {
         return motorista;
     }
 
-    public void setMotorista(Usuario motorista) {
+    public void setMotorista(String motorista) {
         this.motorista = motorista;
     }
 
@@ -65,12 +64,12 @@ public class Veiculo implements Serializable{
         this.modelo = modelo;
     }
 
-    public Date getDatacompra() {
-        return datacompra;
+    public Integer getAnomodelo() {
+        return anomodelo;
     }
 
-    public void setDatacompra(Date datacompra) {
-        this.datacompra = datacompra;
+    public void setAnomodelo(Integer anomodelo) {
+        this.anomodelo = anomodelo;
     }
 
     public Integer getQtdpoltronas() {
@@ -108,7 +107,11 @@ public class Veiculo implements Serializable{
     }
 
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return Integer.parseInt(numero);
+    }
+    
+    public Veiculo(String placa) {
+        this.placa = placa;
     }
 
 }

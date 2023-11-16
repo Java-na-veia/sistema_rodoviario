@@ -1,11 +1,18 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package domain;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-
-public class Passagem implements Serializable {
+/**
+ *
+ * @author gllbo
+ */
+public class Passagem implements Serializable{
     private Integer idpassagem;
     private Integer poltrona;
     private Date datasaida;
@@ -15,20 +22,18 @@ public class Passagem implements Serializable {
     private Double valorpassagem;
     private Usuario usuario;
     private Veiculo veiculo;
-    
-    public Passagem() {
-   
-}
-    public Passagem(Integer idpassagem, Integer poltrona, Date datasaida, String horasaida, Cidade cidadeorigem, Cidade cidadedestino, double valorpassagem, Veiculo veiculo) {
-    this.idpassagem = idpassagem;
-    this.poltrona = poltrona;
-    this.datasaida = datasaida;
-    this.horasaida = horasaida;
-    this.cidadeorigem = cidadeorigem;
-    this.cidadedestino = cidadedestino;
-    this.valorpassagem = valorpassagem;
-    this.veiculo = veiculo;
-}
+
+    public Passagem(Integer idpassagem, Integer poltrona, Date datasaida, String horasaida, Cidade cidadeorigem, Cidade cidadedestino, Double valorpassagem, Usuario usuario, Veiculo veiculo) {
+        this.idpassagem = idpassagem;
+        this.poltrona = poltrona;
+        this.datasaida = datasaida;
+        this.horasaida = horasaida;
+        this.cidadeorigem = cidadeorigem;
+        this.cidadedestino = cidadedestino;
+        this.valorpassagem = valorpassagem;
+        this.usuario = usuario;
+        this.veiculo = veiculo;
+    }
 
     public Integer getIdpassagem() {
         return idpassagem;
@@ -86,22 +91,6 @@ public class Passagem implements Serializable {
         this.valorpassagem = valorpassagem;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Veiculo getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
-    }
-
     @Override
     public int hashCode() {
         int hash = 5;
@@ -127,4 +116,20 @@ public class Passagem implements Serializable {
         }
         return Objects.equals(this.poltrona, other.poltrona);
     }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Passagem{" + "poltrona=" + poltrona + ", cidadeorigem=" + cidadeorigem + ", cidadedestino=" + cidadedestino + ", veiculo=" + veiculo + '}';
+    }
+
+    
+    
 }

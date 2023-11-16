@@ -5,6 +5,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -14,21 +15,21 @@ import java.util.Objects;
 public class Veiculo implements Serializable{
     private String numero;
     private String placa;
-    private String motorista;
+    private Usuario motorista;
     private String modelo;
-    private Integer anomodelo;
+    private Date datacompra;
     private Integer qtdpoltronas;
     
     public Veiculo() {
         
     }
 
-    public Veiculo(String numero, String placa, String motorista, String modelo, Integer anomodelo, Integer qtdpoltronas) {
+    public Veiculo(String numero, String placa, Usuario motorista, String modelo, Date datacompra, Integer qtdpoltronas) {
         this.numero = numero;
         this.placa = placa;
         this.motorista = motorista;
         this.modelo = modelo;
-        this.anomodelo = anomodelo;
+        this.datacompra = datacompra;
         this.qtdpoltronas = qtdpoltronas;
     }
 
@@ -48,11 +49,11 @@ public class Veiculo implements Serializable{
         this.placa = placa;
     }
 
-    public String getMotorista() {
+    public Usuario getMotorista() {
         return motorista;
     }
 
-    public void setMotorista(String motorista) {
+    public void setMotorista(Usuario motorista) {
         this.motorista = motorista;
     }
 
@@ -64,12 +65,12 @@ public class Veiculo implements Serializable{
         this.modelo = modelo;
     }
 
-    public Integer getAnomodelo() {
-        return anomodelo;
+    public Date getDatacompra() {
+        return datacompra;
     }
 
-    public void setAnomodelo(Integer anomodelo) {
-        this.anomodelo = anomodelo;
+    public void setDatacompra(Date datacompra) {
+        this.datacompra = datacompra;
     }
 
     public Integer getQtdpoltronas() {
@@ -106,12 +107,10 @@ public class Veiculo implements Serializable{
         return Objects.equals(this.placa, other.placa);
     }
 
-    public int getId() {
-        return Integer.parseInt(numero);
+    @Override
+    public String toString() {
+        return placa ;
     }
-    
-    public Veiculo(String placa) {
-        this.placa = placa;
-    }
+
 
 }

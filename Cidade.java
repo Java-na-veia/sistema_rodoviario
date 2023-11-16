@@ -4,24 +4,24 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Cidade implements Serializable {
-    private Integer idCidade;
+    private Long idCidade;
     private String nomeCidade;
     private String uf;
 
     public Cidade() {
     }
 
-    public Cidade(Integer idCidade, String nomeCidade, String uf) {
+    public Cidade(Long idCidade, String nomeCidade, String uf) {
         this.idCidade = idCidade;
         this.nomeCidade = nomeCidade;
         this.uf = uf;
     }
 
-    public Integer getIdCidade() {
+    public Long getIdCidade() {
         return idCidade;
     }
 
-    public void setIdCidade(Integer idCidade) {
+    public void setIdCidade(Long idCidade) {
         this.idCidade = idCidade;
     }
 
@@ -59,4 +59,15 @@ public class Cidade implements Serializable {
         Cidade other = (Cidade) obj;
         return Objects.equals(this.idCidade, other.idCidade);
     }
+
+    public Long getId() {
+        return idCidade;
+    }
+
+    @Override
+    public String toString() {
+        return nomeCidade ;
+    }
+    
+    
 }

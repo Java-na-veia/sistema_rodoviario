@@ -18,6 +18,7 @@ public class VeiculoDAO implements VeiculoDAOListener {
 
     public VeiculoDAO() {
     }
+<<<<<<< Updated upstream
 
     /**
      *
@@ -29,17 +30,45 @@ public class VeiculoDAO implements VeiculoDAOListener {
         try {
             con = Conexao.getConnection(); 
             pst = con.prepareStatement("INSERT INTO veiculo (numero, placa, idmotorista, modelo, datacompra, qtdpoltronas) VALUES (?, ?, ?, ?, ?, ?);");
+=======
+    
+    public ResultSet listarVeiculos() throws SQLException {
+        List<Veiculo> veiculos = new ArrayList<>();
+        try {
+            con = Conexao.getConnection();
+            pst = con.prepareStatement("SELECT desplaca FROM veiculo;");
+        } catch (SQLException e) {
+            throw e;
+        } catch (Exception ex) {
+            Logger.getLogger(CidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return pst.executeQuery();
+    }
+    
+    /**
+     *
+     * @param veiculo
+     * @throws SQLException
+     */
+    @Override
+    public void cadastrarVeiculo(Veiculo veiculo) throws SQLException {
+        try {
+            con = Conexao.getConnection(); 
+            pst = con.prepareStatement("CALL cadastrarveiculo(?, ?, ?, ?, ?, ?);");
+>>>>>>> Stashed changes
             pst.setString(1, veiculo.getNumero());
             pst.setString(2, veiculo.getPlaca());
-            pst.setInt(3, veiculo.getMotorista().getId());
+            pst.setString(3, veiculo.getMotorista());
             pst.setString(4, veiculo.getModelo());
-            pst.setDate(5, new java.sql.Date(veiculo.getDatacompra().getTime()));
+            pst.setInt(5,veiculo.getAnomodelo());
             pst.setInt(6, veiculo.getQtdpoltronas());
             pst.executeUpdate();
         } catch (SQLException e) {
             throw e;
         } catch (Exception ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< Updated upstream
         } finally {
             if (pst != null) {
                 pst.close();
@@ -47,6 +76,8 @@ public class VeiculoDAO implements VeiculoDAOListener {
             if (con != null) {
                 con.close();
             }
+=======
+>>>>>>> Stashed changes
         }
     }
 
@@ -61,19 +92,33 @@ public class VeiculoDAO implements VeiculoDAOListener {
         Veiculo veiculo = null;
         try {
             con = Conexao.getConnection(); 
+<<<<<<< Updated upstream
             pst = con.prepareStatement("SELECT numero, placa, idmotorista, modelo, datacompra, qtdpoltronas FROM veiculo WHERE placa = ?;");
+=======
+            pst = con.prepareStatement("CALL consultarveiculo(?);");
+>>>>>>> Stashed changes
             pst.setString(1, placa);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 veiculo = new Veiculo();
+<<<<<<< Updated upstream
                 veiculo.setNumero(rs.getString("numero"));
                 veiculo.setPlaca(rs.getString("placa"));
                 // Preencha os outros atributos do veículo aqui
+=======
+                veiculo.setPlaca(rs.getString("desplaca"));
+                veiculo.setMotorista(rs.getString("nommotorista"));
+                veiculo.setModelo(rs.getString("desmodelo"));
+                veiculo.setAnomodelo(rs.getInt("nroanomodelo"));
+                veiculo.setQtdpoltronas(rs.getInt("nropoltronas"));
+                veiculo.setNumero(rs.getString("numero"));
+>>>>>>> Stashed changes
             }
         } catch (SQLException e) {
             throw e;
         } catch (Exception ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< Updated upstream
         } finally {
             if (pst != null) {
                 pst.close();
@@ -82,6 +127,9 @@ public class VeiculoDAO implements VeiculoDAOListener {
                 con.close();
             }
         }
+=======
+        } 
+>>>>>>> Stashed changes
         return veiculo;
     }
 
@@ -89,6 +137,7 @@ public class VeiculoDAO implements VeiculoDAOListener {
         List<Veiculo> veiculos = new ArrayList<>();
         try {
             con = Conexao.getConnection();
+<<<<<<< Updated upstream
             pst = con.prepareStatement("SELECT numero, placa, idmotorista, modelo, datacompra, qtdpoltronas FROM veiculo");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -96,12 +145,25 @@ public class VeiculoDAO implements VeiculoDAOListener {
                 veiculo.setNumero(rs.getString("numero"));
                 veiculo.setPlaca(rs.getString("placa"));
                 // Preencha os outros atributos do veículo aqui
+=======
+            pst = con.prepareStatement("SELECT desplaca, nommotorista, desmodelo, nroanomodelo, nropoltronas, numero FROM veiculo");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Veiculo veiculo = new Veiculo();
+                veiculo.setPlaca(rs.getString("desplaca"));
+                veiculo.setMotorista(rs.getString("nommotorista"));
+                veiculo.setModelo(rs.getString("desmodelo"));
+                veiculo.setAnomodelo(rs.getInt("nroanomodelo"));
+                veiculo.setQtdpoltronas(rs.getInt("nropoltronas"));
+                veiculo.setNumero(rs.getString("numero"));
+>>>>>>> Stashed changes
                 veiculos.add(veiculo);
             }
         } catch (SQLException e) {
             throw e;
         } catch (Exception ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< Updated upstream
         } finally {
             if (pst != null) {
                 pst.close();
@@ -109,6 +171,8 @@ public class VeiculoDAO implements VeiculoDAOListener {
             if (con != null) {
                 con.close();
             }
+=======
+>>>>>>> Stashed changes
         }
         return veiculos;
     }
@@ -116,13 +180,18 @@ public class VeiculoDAO implements VeiculoDAOListener {
     public void excluirVeiculoPorPlaca(String placa) throws SQLException {
         try {
             con = Conexao.getConnection(); 
+<<<<<<< Updated upstream
             pst = con.prepareStatement("DELETE FROM veiculo WHERE placa = ?;");
+=======
+            pst = con.prepareStatement("CALL excluirveiculo(?);");
+>>>>>>> Stashed changes
             pst.setString(1, placa);
             pst.executeUpdate();
         } catch (SQLException e) {
             throw e;
         } catch (Exception ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< Updated upstream
         } finally {
             if (pst != null) {
                 pst.close();
@@ -130,6 +199,8 @@ public class VeiculoDAO implements VeiculoDAOListener {
             if (con != null) {
                 con.close();
             }
+=======
+>>>>>>> Stashed changes
         }
     }
 }

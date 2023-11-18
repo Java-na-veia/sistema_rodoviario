@@ -7,18 +7,10 @@ import java.util.List;
 
 public interface CidadeDAOListener {
     void cadastrarCidade(Cidade cidade) throws SQLException;
-
-<<<<<<< Updated upstream
-    Cidade obterCidadePorId(Long idCidade) throws SQLException;
-
-    List<Cidade> listarTodasCidades() throws SQLException;
-
-    void excluirCidade(Long idCidade) throws SQLException;
-=======
+    
     Cidade obterCidadePorId(Integer idCidade) throws SQLException;
 
     List<Cidade> listarTodasCidades() throws SQLException;
 
     void excluirCidade(Integer idCidade) throws SQLException;
->>>>>>> Stashed changes
 }
